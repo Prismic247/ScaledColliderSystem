@@ -1,28 +1,18 @@
 {
-    "name":"Example Listing",
-    "id":"com.vrchat.example-listing",
-    "url":"https://vrchat-community.github.io/template-package-listing/index.json",
+    "name":"Scalable Collider System",
+    "id":"com.prismic247.scalablecolliders",
+    "url":"https://prismic247.github.io/ScaledColliderSystem/index.json",
     "author":{
-        "email":"developer@vrchat.com",
-        "name":"VRChat",
-        "url":"https://hello.vrchat.com"
+        "email":"prismic247@gmail.com",
+        "name":"Prismic247",
+        "url":"https://github.com/Prismic247"
     },
-    "description":"Example listing of VRChat packages",
+    "description":"Scaled Player Collider prefab for VRChat worlds, to allow for interactions with world colliders that are scaled relative to your avatar size.",
     "infoLink":{
-        "url":"http://github.com/vrchat-community/template-package-listing",
+        "url":"http://github.com/Prismic247/ScaledColliderSystem",
         "text":"View on GitHub"
     },
     "bannerUrl":"banner.png",
-    "githubRepos":[
-        "vrchat-community/clientsim"
-    ],
-    "packages":[
-        {
-            "name":"com.vrchat.udonsharp",
-            "releases":[
-                "https://github.com/vrchat-community/UdonSharp/releases/download/1.1.7/com.vrchat.UdonSharp.zip",
-                "https://github.com/vrchat-community/UdonSharp/releases/download/1.1.6/com.vrchat.UdonSharp-1.1.6.zip"
-            ]
-        }
-    ]
+    "githubRepos":[],
+    "packages":[]
 }
