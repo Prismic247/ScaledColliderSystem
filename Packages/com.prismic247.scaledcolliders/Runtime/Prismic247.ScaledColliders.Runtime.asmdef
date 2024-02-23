@@ -1,0 +1,20 @@
+{
+  "name": "Prismic247.ScaledColliders.Runtime",
+  "references": [
+    "VRC.Udon",
+    "UdonSharp.Runtime",
+    "VRC.SDK3",
+    "VRC.SDKBase"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "autoReferenced": true,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "defineConstraints": [
+    "UDONSHARP"
+  ],
+  "optionalUnityReferences": [],
+  "noEngineReferences": false
+}

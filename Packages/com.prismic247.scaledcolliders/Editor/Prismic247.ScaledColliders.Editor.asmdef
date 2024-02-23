@@ -1,0 +1,28 @@
+{
+  "name": "Prismic247.ScaledColliders.Editor",
+  "references": [
+    "VRC.Udon",
+    "VRC.Udon.Editor",
+    "UdonSharp.Runtime",
+    "UdonSharp.Editor",
+    "VRC.SDK3",
+    "VRC.SDK3.Editor",
+    "VRC.SDKBase",
+    "VRC.SDKBase.Editor",
+    "com.vrchat.core.vpm-resolver.Editor",
+    "Prismic247.ScaledColliders"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "autoReferenced": true,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "defineConstraints": [
+    "UDONSHARP"
+  ],
+  "optionalUnityReferences": [],
+  "noEngineReferences": false
+}
