@@ -10,6 +10,10 @@ Given the options, I decided to add another to the mix that doesn't use any stat
 
 The result is the scale set on the player should match their collisions with the world. Optional features also included are the ability to scale the player movement/physics to their size, scale their volume, control manual scaling and min/max sizes, enabling/disabling the system altogether, switching out the scalable world parent, etc.
 
+## Demo
+
+You can see the system in action in the world [Scalable Avatar Collider Demo](https://vrchat.com/home/world/wrld_5f61ec26-37fc-491a-84af-14f4cbafbba5)
+
 ## Installation
 
 [Add to VRChat Creator Companion](https://prismic247.github.io/ScaledColliderSystem/)
