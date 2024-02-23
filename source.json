@@ -14,5 +14,12 @@
     },
     "bannerUrl":"banner.png",
     "githubRepos":[],
-    "packages":[]
+    "packages":[
+        {
+            "name":"com.prismic247.scaledcolliders",
+            "releases":[
+                "https://github.com/Prismic247/ScaledColliderSystem/releases/download/0.0.1/com.prismic247.scaledcolliders-0.0.1.zip"
+            ]
+        }
+    ]
 }
