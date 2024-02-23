@@ -7,7 +7,7 @@
         "name":"Prismic247",
         "url":"https://github.com/Prismic247"
     },
-    "description":"Scaled Collider prefab for VRChat worlds, to allow for player interactions with world colliders that are scaled relative to your avatar size.",
+    "description":"Prefab for VRChat worlds to allow for player interactions with world colliders that are scaled relative to your avatar size.",
     "infoLink":{
         "url":"http://github.com/Prismic247/ScaledColliderSystem",
         "text":"View on GitHub"
