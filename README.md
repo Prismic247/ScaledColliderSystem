@@ -27,12 +27,13 @@ Alternatively, go to [Releases](https://github.com/Prismic247/ScaledColliderSyst
 
 ## Known Issues
 
-- The system works by creating a clone of the world parent and it's children, stripping out the unnecessary elements, and scaling and repositioning the clone inversely to the player. The original world parent has it's colliders disabled for local player collision as well. This is how the system functions at it's core, but it's not without it's issues:
+- The system works by creating a clone of the `World Parent` and it's children, stripping out the unnecessary elements, and scaling and repositioning the clone inversely to the player. The original world parent has it's colliders disabled for local player collision as well. This is how the system functions at it's core, but it's not without it's issues:
 	- Movement on/against an effectively moving surface isn't perfect, and can lead to some jittery-ness, especially at small scales and near walls.
 	- Scaling small also means the world is scaled up very large, which can lead to some floating point movemnet areas, especially far from the world origin.
 	- Held objects can, with a little effort, be moved through surfaces.
 - The TerrainCollider is not supported, due to limitations in Udon's access to their workings. If ever this is fixed I'll try to add support for it, but as is it's not a major issue, since terain has limited slopes and no overhangs anyways, so scenarios where scaling them would matter are rare.
 - An avatar's default eye height doesn't always correlate to the default VRChat player collider height the same way. Thus it is possible for two avatars with different eye heights scaled to the exact same value to have different collidable sizes.
+- Toggled colliders on the `World Parent` (such as doors, removed walls, etc) won't work as normally intended since the clone doesn't have any connection to the original, meaning something like a door that disables to let you through won't have an effect, so try to keep toggles colliders out of the world parent hierarchy if you can help it. One workaround is to reinitialize the scaled colliders after the collider is toggled, such that a new copy of the world parent is created. This can be done either by toggling the `ToggleScaledColliders(state)` function off and on, or by calling `InitializeScaledColliders()` to reset it.
 
 ## Udon# Public API
 
