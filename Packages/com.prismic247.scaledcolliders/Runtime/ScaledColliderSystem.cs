@@ -160,8 +160,9 @@ namespace Prismic247.ScaledColliders {
             }
         }
 
-        public float GetPlayerScale() {return playerScale;}
-        public float GetWorldScale() {return worldScale;}
+        public float GetLocalPlayerScale() {return playerScale;}
+        
+        public float GetPlayerScale(VRCPlayerApi player) {return player.GetAvatarEyeHeightAsMeters() / baseEyeHeight;}
 
         private void AdjustLocalScale() {
             playerScale = local.GetAvatarEyeHeightAsMeters() / baseEyeHeight;

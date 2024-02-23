@@ -1,7 +1,7 @@
 {
   "name": "com.prismic247.scaledcolliders",
   "displayName": "Scaled Collider System",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "unity": "2022.3",
   "description": "Prefab for VRChat worlds to allow for player interactions with world colliders that are scaled relative to your avatar size.",
   "gitDependencies": {},

@@ -38,18 +38,18 @@ Alternatively, go to [Releases](https://github.com/Prismic247/ScaledColliderSyst
 
 Alongside the configurable properties, the following functions are made available to further control the behavior.
 
-#### float GetPlayerScale()
-Returns the local player's scale relative to the base eye height.
+### float GetLocalPlayerScale()
+Returns the local player's scale relative to the base eye height. Get the inverse of this value for the local world scale (1 / GetLocalPlayerScale()).
 
-#### float GetWorldScale()
-Returns the collider's scale relative to the base eye height (equal to 1 / GetPlayerScale()).
+### float GetPlayerScale(VRCPlayerApi player)
+Returns a given player's scale relative to the base eye height. Get the inverse of this value for the player's world scale (1 / GetPlayerScale(player)).
 
-#### bool ToggleScaledColliders(bool state)
+### bool ToggleScaledColliders(bool state)
 Sets the `enabledScaledColliders` state, and returns the state afterwards. Certain conditions such as a missing `worldParent` may cause this to reject attempts at enabling, hence the return value.
 
-#### bool ToggleColliderGhosts(bool state)
+### bool ToggleColliderGhosts(bool state)
 Sets the `showColliderGhosts` state, and returns the state afterwards. Enabling this without having a `ghostMaterial` set will simple not render the objects, and it will also not work when `enabledScaledColliders` is disabled.
 
-#### void InitializeScaledColliders(GameObject newWorldParent = null)
+### void InitializeScaledColliders(GameObject newWorldParent = null)
 This allows you to swap out the `worldParent` for a new one, or to reset the current one if the parameter is null. The old parent will automatically be restored to its original state.
 
