@@ -1,6 +1,6 @@
 # Scaled Collider System
 
-Prefab for VRChat worlds to allow for player interactions with world colliders that are scaled relative to your avatar size. PC and Quest compatible.
+Prefab for VRChat worlds to allow for player interactions with world colliders that are scaled relative to your avatar size. PC and Quest compatible. Future support planned for height specific scaling when crouching/going prone.
 
 ## About
 
