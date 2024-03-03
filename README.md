@@ -1,6 +1,6 @@
 # Scaled Collider System
 
-Prefab for VRChat worlds to allow for player interactions with world colliders that are scaled relative to your avatar size.
+Prefab for VRChat worlds to allow for player interactions with world colliders that are scaled relative to your avatar size. PC and Quest compatible.
 
 ## About
 
@@ -31,6 +31,7 @@ Alternatively, go to [Releases](https://github.com/Prismic247/ScaledColliderSyst
 
 ## Known Issues
 
+- This has been built for and tested in Unity 2022. Whether or not it works for Unity 2019 I do not know.
 - The system works by creating a clone of the `World Parent` and it's children, stripping out the unnecessary elements, and scaling and repositioning the clone inversely to the player. The original world parent has it's colliders disabled for local player collision as well. This is how the system functions at it's core, but it's not without it's issues:
 	- Movement on/against an effectively moving surface isn't perfect, and can lead to some jittery-ness, especially at small scales and near walls.
 	- Scaling small also means the world is scaled up very large, which can lead to some floating point movemnet areas, especially far from the world origin.
