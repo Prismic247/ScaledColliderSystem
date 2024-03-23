@@ -22,22 +22,25 @@ Alternatively, go to [Releases](https://github.com/Prismic247/ScaledColliderSyst
 
 ## Setup
 
-1. Install the package above into your VRChat Unity world project and add the `Scaled Collider System` prefab to your project, which can be found under `Packages/com.prismic247.scaledcolliders`.
+1. Install the package above into your VRChat Unity world project and add the `Scaled Collider System` prefab to your project hierarchy. The prefab can be found under `Packages/com.prismic247.scaledcolliders`.
 2. Define the `World Parent` object on the prefab. This is a game object which contains the world colliders you want scaled. **DO NOT** include the world descriptor, scripts, etc, since this can cause some performance issues such as frame drops, logic running twice, etc. Ensure any colliders you intend to use aren't set to Static. In practice and for performance reasons, try to limit it to objects with colliders that the players will interact with and move around. An enclosed room can likely exclude the floor or ceiling for example, there's no need to scale video players and canvases, etc.
-3. Define the other parameters as you see fit. You can customize Each element has a tooltip and should be fairly explanatory for what they do.
-4. (Optional) If `Manual Scaling Allowed` and/or `Enable Scaled Movement` is enabled, it's recommended that you disable the Udon Behavior on the `VRCWorld` that controls avatar scaling and player movement respectively, as these should override those anyways.
-5. (Optional) `Show Collider Ghosts` allows for debugging the visible colliders to see how things work/line up. A `ColliderGhost` material is provided, but you can always use your own as well.
-6. (Optional) You can control and get data from the system by including `using Prismic247.ScaledColliders;` in your own Udon# script, creating a `public ScaledColliderSystem scaledColliderSystem;` on your UdonSharpBehavior, and setting the value in the inspector to the prefab. Alongside the properties, see the **Udon# Public API** section below for other functions you can utilize in your own scripts.
+3. Define the other parameters as fits for your use case, such as default eye height, whether players can scale themselves and within what bounds, whether or not to scale player speed alongside size, to scale voice/audio, etc. Each element has a tooltip, and should be fairly self explanatory for what they do.
+
+#### Optional Steps
+
+- If `Manual Scaling Allowed` and/or `Enable Scaled Movement` is enabled, it's recommended that you disable the Udon Behavior on the `VRCWorld` that controls avatar scaling and player movement respectively, as these should override those anyways.
+- Enabling `Show Collider Ghosts` allows for debugging the invisible colliders to see how things work/line up. A `ColliderGhost` material is provided, but you can always use your own as well.
+- You can control and get data from the system by including `using Prismic247.ScaledColliders;` in your own Udon# script, creating a `public ScaledColliderSystem scaledColliderSystem;` on your UdonSharpBehavior, and setting the value in the inspector to the prefab. Alongside the properties, see the **Udon# Public API** section below for other functions you can utilize in your own scripts.
 
 ## Known Issues / Important Notes
 
 - This has been built for and tested in Unity 2022. Whether or not it works for Unity 2019 I do not know.
-- The system works by creating a clone of the `World Parent` and it's children, stripping out the unnecessary elements, and scaling and repositioning the clone inversely to the player. The original world parent has it's colliders disabled for local player collision as well. This is how the system functions at it's core, but it's not without it's issues:
+- The system works by creating a clone of the `World Parent` and its children, stripping out the unnecessary elements, and scaling and repositioning the clone inversely to the player. The original world parent has its colliders disabled for local player collision as well. This is how the system functions at its core, but it's not without its issues:
 	- Movement on/against an effectively moving surface isn't perfect, and can lead to some jittery-ness, especially at small scales and near walls.
 	- Scaling small also means the world is scaled up very large, which can lead to some floating point movemnet areas, especially far from the world origin.
 	- Held objects can, with a little effort, be moved through surfaces.
 - The TerrainCollider is not supported, due to limitations in Udon's access to their workings. If ever this is fixed I'll try to add support for it, but as is it's not a major issue, since terain has limited slopes and no overhangs anyways, so scenarios where scaling them would matter are rare.
-- An avatar's default eye height doesn't always correlate to the default VRChat player collider height the same way. Thus it is possible for two avatars with different eye heights scaled to the exact same value to have different collidable sizes.
+- An avatar's default eye height doesn't always correlate to the default VRChat player collider height the same way. Thus it is possible for two avatars with different eye heights scaled to the exact same value to have different collidable sizes. So be sure to test world features with different avatars.
 - Toggled colliders on the `World Parent` (such as doors, removed walls, etc) won't work as normally intended since the clone doesn't have any connection to the original, meaning something like a door that disables to let you through won't have an effect, so try to keep toggles colliders out of the world parent hierarchy if you can help it. One workaround is to reinitialize the scaled colliders after the collider is toggled, such that a new copy of the world parent is created. This can be done either by toggling the `ToggleScaledColliders(state)` function off and on, or by calling `InitializeScaledColliders()` to reset it.
 - Doesn't work with static colliders, since it has to be movable and scalable. This is the intended functionality of static colliders, so not really an issue, just important to keep in mind when setting up your world parent and the colliders on its children.
 
